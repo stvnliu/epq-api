@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import me.imsonmia.epqapi.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findByFirstName(String userName);
+    User findByUserName(String userName);
 }

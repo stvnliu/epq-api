@@ -1,4 +1,4 @@
-package me.imsonmia.epqapi.messaging;
+package me.imsonmia.epqapi.model;
 
 public class Message {
     private String from;
