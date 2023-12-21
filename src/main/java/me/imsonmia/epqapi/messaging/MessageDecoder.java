@@ -22,7 +22,6 @@ public class MessageDecoder implements Decoder.Text<Message> {
     }
     @Override
     public boolean willDecode(String s) {
-        // TODO Auto-generated method stub
         return (s != null);
     }
 }

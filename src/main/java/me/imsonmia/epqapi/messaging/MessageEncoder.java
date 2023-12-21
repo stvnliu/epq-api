@@ -14,12 +14,10 @@ public class MessageEncoder implements Encoder.Text<Message> {
     }
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
         Text.super.destroy();
     }
     @Override
     public void init(EndpointConfig endpointConfig) {
-        // TODO Auto-generated method stub
         Text.super.init(endpointConfig);
     }
 }
