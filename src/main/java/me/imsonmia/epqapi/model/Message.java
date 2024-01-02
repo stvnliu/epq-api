@@ -3,33 +3,34 @@ package me.imsonmia.epqapi.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "message")
 public class Message {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private Long id;
-    private String from;
-    private String to;
-    private String content;
-    private Long timestamp;
+    Long    id;
+    String  fromUserId;
+    String  toUserId;
+    String  content;
+    Long    timeMillis;
     public Long getId() {
         return id;
     }
-    public String getFrom() {
-        return this.from;
+    public String getFromUserId() {
+        return fromUserId;
     }
-    public void setFrom(String from) {
-        this.from = from;
+    public String getToUserId() {
+        return toUserId;
     }
-    public String getTo() {
-        return to;
+    public void setFromUserId(String fromUserId) {
+        this.fromUserId = fromUserId;
     }
-    public void setTo(String to) {
-        this.to = to;
+    public void setToUserId(String toUserId) {
+        this.toUserId = toUserId;
     }
     public String getContent() {
         return content;
@@ -37,10 +38,24 @@ public class Message {
     public void setContent(String content) {
         this.content = content;
     }
-    public Long getTimestamp() {
-        return timestamp;
+    public Long getTimeMillis() {
+        return timeMillis;
     }
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
+    public void setTimeMillis(Long timeMillis) {
+        this.timeMillis = timeMillis;
+    }
+    public Message() {
+
+    }
+    public Message(Long id,
+    String  fromUserId,
+    String  toUserId,
+    String  content,
+    Long    timeMillis) {
+        this.id = id;
+        this.fromUserId = fromUserId;
+        this.toUserId = toUserId;
+        this.content = content;
+        this.timeMillis = timeMillis;
     }
 }

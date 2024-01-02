@@ -16,13 +16,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    Long id;
+    Long    id;
     @Getter
     @Setter
-    String userName;
+    String  userName;
     @Getter
     @Setter
-    Date dateJoined;
+    Date    dateJoined;
     public User() {
 
     }
