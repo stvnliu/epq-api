@@ -1,5 +1,6 @@
 package me.imsonmia.epqapi.controller;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -24,9 +25,16 @@ public class MessageController {
         // Forward message to subscribers of Stomp endpoint
         return message;
     }
-    @GetMapping("/chat/history/{from}")
-    public ArrayList<Message> getMessagesFromTimestamp(@PathVariable(value = "from") Long fromTimestamp) {
-        return new ArrayList<Message>();
+    @GetMapping("/api/v1/chat/history/{from}")
+    public ArrayList<Message> getMessagesFromTimestamp(@PathVariable(value = "from") long fromTimestamp) {
+        ArrayList<Message> messages = new ArrayList<>();
+        Instant targetInstant = Instant.ofEpochMilli(fromTimestamp);
+        for (Message msg : repository.findAll()) {
+            Instant t = Instant.ofEpochMilli(msg.getTimestamp());
+            if (t.isBefore(targetInstant)) {continue;}
+            messages.add(msg);
+        }
+        return messages;
     }
     // @GetMapping("/msg/{id}")
     // public ChatMessage getMessageById(@PathVariable(value = "id") Long id) {

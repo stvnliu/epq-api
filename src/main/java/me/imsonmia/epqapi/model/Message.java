@@ -1,5 +1,6 @@
 package me.imsonmia.epqapi.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -14,6 +15,7 @@ public class Message {
     private String from;
     private String to;
     private String content;
+    private Long timestamp;
     public Long getId() {
         return id;
     }
@@ -34,5 +36,11 @@ public class Message {
     }
     public void setContent(String content) {
         this.content = content;
+    }
+    public Long getTimestamp() {
+        return timestamp;
+    }
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
 }
