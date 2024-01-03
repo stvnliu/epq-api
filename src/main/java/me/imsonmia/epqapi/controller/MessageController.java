@@ -18,7 +18,6 @@ public class MessageController {
     public Message messageHandler(Message message) throws Exception {
         // Add message to repository
         repository.save(message);
-
         // Forward message to subscribers of Stomp endpoint
         return message;
     }
