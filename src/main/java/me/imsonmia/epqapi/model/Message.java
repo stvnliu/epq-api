@@ -13,12 +13,16 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     Long    id;
+    MessageType type;
     String  fromUserId;
     String  toUserId;
     String  content;
     Long    timeMillis;
     public Long getId() {
         return id;
+    }
+    public MessageType getType() {
+        return type;
     }
     public String getFromUserId() {
         return fromUserId;
@@ -44,15 +48,20 @@ public class Message {
     public void setTimeMillis(Long timeMillis) {
         this.timeMillis = timeMillis;
     }
+    public void setType(MessageType type) {
+        this.type = type;
+    }
     public Message() {
 
     }
     public Message(Long id,
+    MessageType type,
     String  fromUserId,
     String  toUserId,
     String  content,
     Long    timeMillis) {
         this.id = id;
+        this.type = type;
         this.fromUserId = fromUserId;
         this.toUserId = toUserId;
         this.content = content;
