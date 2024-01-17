@@ -4,8 +4,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import javax.swing.text.html.Option;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -87,13 +85,13 @@ public class UserController {
         }
         return messages;
     }
-
-    @PatchMapping("/user/{id}")
-    boolean changeUserProperties(@PathVariable(value = "id") Long userId, @RequestBody User newUser) {
-        if (!userRepository.existsById(userId)) {
-            return false;
-        }
-        userRepository.save(newUser);
-        return true;
-    }
+    // @PatchMapping("/user/{id}")
+    // boolean changeUserProperties(@PathVariable(value = "id") Long userId,
+    // @RequestBody User newUser) {
+    // if (!userRepository.existsById(userId)) {
+    // return false;
+    // }
+    // userRepository.save(newUser);
+    // return true;
+    // }
 }
