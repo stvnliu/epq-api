@@ -16,19 +16,29 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    Long    id;
+    Long id;
     @Getter
     @Setter
-    String  userName;
+    String userName;
     @Getter
     @Setter
-    Date    dateJoined;
+    Date dateJoined;
+    @Getter
+    @Setter
+    Date lastSeen;
+    @Getter
+    @Setter
+    String passwordHash;
+
     public User() {
 
     }
-    public User(Long id, String userName, Date dateJoined) {
+
+    public User(Long id, String userName, Date dateJoined, Date lastSeen, String passwordHash) {
         this.id = id;
         this.userName = userName;
         this.dateJoined = dateJoined;
+        this.lastSeen = lastSeen;
+        this.passwordHash = passwordHash;
     }
 }
