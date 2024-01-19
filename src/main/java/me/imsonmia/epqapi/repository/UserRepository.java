@@ -1,11 +1,13 @@
 package me.imsonmia.epqapi.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 
 import me.imsonmia.epqapi.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findByUserName(String userName);
+    Optional<User> findByUserName(String userName);
 
     boolean existsByUserName(String userName);
 }

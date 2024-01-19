@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,8 +39,13 @@ public class UserController {
                 // malformed request
                 return ResponseEntity.badRequest().build();
             } else {
+                boolean exists = userRepository.existsByUserName(name.get());
                 // Filter by name branch
-                return ResponseEntity.ok().body(userRepository.findByUserName(name.get()));
+                if (!exists) {
+                    return ResponseEntity.notFound().build();
+                } else {
+                    return ResponseEntity.ok().body(userRepository.findByUserName(name.get()).get());
+                }
             }
         } else {
             // get by id branch
@@ -85,13 +91,4 @@ public class UserController {
         }
         return messages;
     }
-    // @PatchMapping("/user/{id}")
-    // boolean changeUserProperties(@PathVariable(value = "id") Long userId,
-    // @RequestBody User newUser) {
-    // if (!userRepository.existsById(userId)) {
-    // return false;
-    // }
-    // userRepository.save(newUser);
-    // return true;
-    // }
 }
