@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.imsonmia.epqapi.model.LoginRequest;
 import me.imsonmia.epqapi.model.Message;
 import me.imsonmia.epqapi.model.User;
 import me.imsonmia.epqapi.repository.MessageRepository;
@@ -73,6 +74,12 @@ public class UserController {
         userRepository.deleteById(id);
         return true;
     }
+
+    // @GetMapping("/user/validate")
+    // public boolean validateLogin(@RequestBody LoginRequest login) {
+    // return userRepository.findByUserName(login.getLoginUserId()).isPresent();
+    // return false;
+    // }
 
     @GetMapping("/msg/{from}")
     public ArrayList<Message> getMessagesFromTimestamp(@PathVariable(value = "from") Long fromTimestamp) {
