@@ -19,6 +19,9 @@ public class User {
     Long id;
     @Getter
     @Setter
+    String userId;
+    @Getter
+    @Setter
     String userName;
     @Getter
     @Setter
@@ -34,8 +37,8 @@ public class User {
 
     }
 
-    public User(Long id, String userName, Date dateJoined, Date lastSeen, String passwordHash) {
-        this.id = id;
+    public User(String userId, String userName, Date dateJoined, Date lastSeen, String passwordHash) {
+        this.userId = userId;
         this.userName = userName;
         this.dateJoined = dateJoined;
         this.lastSeen = lastSeen;

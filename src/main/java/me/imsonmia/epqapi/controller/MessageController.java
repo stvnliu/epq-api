@@ -1,5 +1,6 @@
 package me.imsonmia.epqapi.controller;
 
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -13,6 +14,7 @@ import me.imsonmia.epqapi.repository.MessageRepository;
 public class MessageController {
     @Autowired
     private MessageRepository repository;
+
     @MessageMapping("/chat")
     @SendTo("/sub/chat")
     public Message messageHandler(Message message) throws Exception {
@@ -21,9 +23,9 @@ public class MessageController {
         // Forward message to subscribers of Stomp endpoint
         return message;
     }
-    
+
     // @GetMapping("/msg/{id}")
     // public ChatMessage getMessageById(@PathVariable(value = "id") Long id) {
-    //     return chatMessageRepository.findById(id).get();
+    // return chatMessageRepository.findById(id).get();
     // }
 }
