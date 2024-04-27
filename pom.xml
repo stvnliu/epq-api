@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>me.imsonmia</groupId>
 	<artifactId>epqapi</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<name>epqapi</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
